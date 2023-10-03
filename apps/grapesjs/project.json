@@ -16,8 +16,16 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/grapesjs/tsconfig.app.json",
         "assets": ["apps/grapesjs/src/favicon.ico", "apps/grapesjs/src/assets"],
-        "styles": ["apps/grapesjs/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/grapesjs/src/styles.scss",
+          "node_modules/grapesjs/dist/css/grapes.min.css"
+        ],
+        "scripts": [
+          "node_modules/grapesjs/dist/grapes.min.js",
+          "node_modules/grapesjs-preset-newsletter/dist/index.js",
+          "node_modules/grapesjs-preset-webpage/dist/index.js",
+          "node_modules/grapesjs-blocks-basic/dist/index.js"
+        ]
       },
       "configurations": {
         "production": {

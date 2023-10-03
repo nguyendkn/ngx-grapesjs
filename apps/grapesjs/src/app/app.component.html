@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<p>Select an editor mode:</p>
+<div>
+  <input type="radio" id="webpage" name="webpage" value="webpage" [(ngModel)]="editorMode">
+  <label for="webpage">Webpage</label>
+</div>
+<div>
+  <input type="radio" id="newsletter" name="newsletter" value="newsletter" [(ngModel)]="editorMode">
+  <label for="newsletter">Newsletter</label>
+</div>
+<div class="editor">
+  <ngx-grapesjs-newsletter *ngIf="editorMode === 'newsletter'" [template]="template" [placeholders]="placeholders"></ngx-grapesjs-newsletter>
+  <ngx-grapesjs-webpage *ngIf="editorMode === 'webpage'" [template]="template"></ngx-grapesjs-webpage>
+</div>
