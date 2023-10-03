@@ -1,11 +1,11 @@
 {
-  "name": "@ngx-grapesjs/source",
+  "name": "nguyendkn-grapesjs",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx run grapesjs:serve:development"
+    "start": "npx nx run grapesjs:serve:development",
+    "build": "npx nx build ngx-grapesjs"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
     "@angular/common": "~16.2.0",
