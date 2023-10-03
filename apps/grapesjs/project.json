@@ -1,0 +1,75 @@
+{
+  "name": "grapesjs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "ngx-grapesjs",
+  "sourceRoot": "apps/grapesjs/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/grapesjs",
+        "index": "apps/grapesjs/src/index.html",
+        "main": "apps/grapesjs/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/grapesjs/tsconfig.app.json",
+        "assets": ["apps/grapesjs/src/favicon.ico", "apps/grapesjs/src/assets"],
+        "styles": ["apps/grapesjs/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "grapesjs:build:production"
+        },
+        "development": {
+          "browserTarget": "grapesjs:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "grapesjs:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/grapesjs/**/*.ts", "apps/grapesjs/**/*.html"]
+      }
+    }
+  }
+}
