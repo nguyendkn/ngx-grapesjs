@@ -1,0 +1,38 @@
+{
+  "name": "ngx-grapesjs",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ngx-grapesjs/src",
+  "prefix": "ngx-grapesjs",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "ngx-grapesjs/ng-package.json",
+        "tailwindConfig": "ngx-grapesjs/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "ngx-grapesjs/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "ngx-grapesjs/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "ngx-grapesjs/**/*.ts",
+          "ngx-grapesjs/**/*.html",
+          "ngx-grapesjs/package.json"
+        ]
+      }
+    }
+  }
+}
